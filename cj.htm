@@ -31,7 +31,26 @@
   </section>
   <footer>
   <script>
-//    activar_consolas_javascript();
+var local_consoles_js = Array();
+function activar_consolas_javascript()
+  {
+    local_consoles_js =
+      document.getElementsByClassName('consola-javascript');
+    var numero_consola=0;
+    for(numero_consola=0;
+      numero_consola < local_consoles_js.length; numero_consola++)
+      {
+//        local_consoles_js[numero_consola].clear=consola_javascript_clear;
+        local_consoles_js[numero_consola].innerHTML =
+          '<div>Console ' + numero_consola +
+          '<br></div><textarea></textarea>';
+/*        local_consoles_js[numero_consola].childNodes[1].onclick =
+          consola_javascript_ejecutar;
+        local_consoles_js[numero_consola].childNodes[2].onkeyup =
+          consola_javascript_ejecutar;*/
+      }
+  }
+    activar_consolas_javascript();
   </script>
   </footer>
 </body></html>
