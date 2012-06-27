@@ -1,0 +1,22 @@
+Consola Reutilizable Web JS
+
+
+The Droid Sans Mono source is under the Apache license, the rest, all the
+  Javascript, HTML, CSS, etc; is under the GPL v3.
+
+La fuente Droid Sans Mono esta bajo la licencia Apache, el resto, todo el
+ código Javascript, HTML, CSS, etc; esta bajo la licencia GPL v3.
+ 
+ 
+ Ejemplo de código HTML para incluir consolas:
+ - En la cabeza junto a los meta datos:
+  <link rel="stylesheet" type="text/css" href="consola_js.css" media="screen" />
+  <script src="consola_js.js"></script>
+ - En los sitios de la web donde necesite la consola javascript:
+  <div class="consola-javascript">
+    Necesita Javascript para que funcione la consola JS.
+  </div>
+ - Y al final de la pagina:
+  <script>
+    activar_consolas_javascript();
+  </script>
