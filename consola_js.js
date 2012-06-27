@@ -1,3 +1,14 @@
+
+/* Ejemplo de código HTML para incluir consolas:
+        <div class="consola-javascript">
+          Necesita Javascript para que funcione la consola JS.
+        </div>
+Y al final de la pagina:
+        <script>
+          activar_consolas_javascript();
+        </script>
+*/
+
 var local_consoles_js = Array();
 var consoles_js_height = 16;
 var local_consoles_js_log = {};
