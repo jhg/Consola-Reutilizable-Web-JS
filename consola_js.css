@@ -1,0 +1,87 @@
+/* Tipografia Droid Sans Mono para las consolas javascript */
+@font-face
+  {
+    font-family: "Droid Sans Mono";
+    src: url("DroidSansMono.ttf") format("truetype");
+  }
+div.consola-javascript
+  {
+    font-family: "Droid Sans Mono", "Courier New", Courier,
+      "Lucida Console", Monaco, monospace;
+    /* Controlar tamaño de consola con el tamaño de la tipografia */
+    font-size: 9pt;
+    /* 23em de ancho para un tamaño de 40 caracteres por linea */
+    width: 23em;
+    min-width: 23em;
+    /* 13.25em de alto para un tamaño de 8 lineas */
+    height: 13.25em;
+    min-height: 13.25em;
+    background: #000;
+    background: rgba(0,0,0,0.75);
+    margin: 0px;
+    padding: 0px;
+    border: solid rgba(0,0,0,0.0) 0.5em;
+    color: #fff;
+    overflow: hidden;
+    border-radius: 16px;
+    resize: both;
+    outline: #000 solid 0px;
+  }
+div.consola-javascript *
+  {
+    font-family: "Droid Sans Mono", "Courier New", Courier,
+      "Lucida Console", Monaco, monospace;
+    /* Controlar tamaño de consola con el tamaño de la tipografia */
+    font-size: 9pt;
+    resize: none;
+    background: #000;
+    background: rgba(0,0,0,0.0);
+    color: #fff;
+    margin: 0px;
+    padding: 0px;
+    border: solid black 0px;
+    outline: #000 solid 0px;
+  }
+div.consola-javascript div
+  {
+    width: 100%;
+    min-height: 11.25em;
+    min-height: -moz-calc(100% - 1.75em);
+    min-height: -webkit-calc(100% - 1.75em);
+    min-height: -o-calc(100% - 1.75em);
+    min-height: -ms-calc(100% - 1.75em);
+    min-height: calc(100% - 1.75em);
+    height: 85%;
+    height: -moz-calc(100% - 1.75em);
+    height: -webkit-calc(100% - 1.75em);
+    height: -o-calc(100% - 1.75em);
+    height: -ms-calc(100% - 1.75em);
+    height: calc(100% - 1.75em);
+    border-bottom: solid gray 1px;
+    overflow: auto;
+  }
+div.consola-javascript div::selection
+  {background: rgba(128,128,128,0.5);}/* webkit, opera, IE9 */
+div.consola-javascript div::-moz-selection
+  {background: rgba(128,128,128,0.5);}/* mozilla firefox */
+div.consola-javascript div span.consola-javascript-error {color: #f00;}
+div.consola-javascript input[type='button']
+  {
+    width: 2em;
+    min-height: 1.75em;
+    height: 1.75em;
+  }
+div.consola-javascript input[type='button']:hover {color: #f0f;}
+div.consola-javascript input[type='button']:active {color: #00f;}
+div.consola-javascript input[type='text']
+  {
+    width: 91%;
+    width: -moz-calc(100% - 3em);
+    width: -webkit-calc(100% - 3em);
+    width: -o-calc(100% - 3em);
+    width: -ms-calc(100% - 3em);
+    width: calc(100% - 3em);
+    min-height: 1.75em;
+    height: 1.75em;
+    border-right: solid gray 0px;
+  }
