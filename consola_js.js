@@ -24,11 +24,10 @@ function consola_javascript_ejecutar(event)
     var event = event || window.event;
     if (event.type == 'keyup')
       {
-        if (event.keyCode != 13 || event.shiftKey) return;
+        if (!(event.keyCode == 13 && event.shiftKey)) return;
       }
     var console_js = this.parentNode;
     var comando = console_js.childNodes[1].value;
-    console_js.childNodes[1].value = "";
     var comando_formateado = comando;
     while (comando_formateado.indexOf("\n") != -1)
       {
@@ -44,10 +43,6 @@ function consola_javascript_ejecutar(event)
     console_js.childNodes[0].innerHTML = screen.join("<br>") + "<br>";
     console_js.childNodes[0].innerHTML += comando_formateado;
     valor_retornado = eval (comando);
-    while (valor_retornado.indexOf("\n") != -1)
-      {
-        valor_retornado = valor_retornado.replace("\n", "<br>");
-      }
     if (valor_retornado != '')
       {
         console_js.childNodes[0].innerHTML += valor_retornado + "<br>";
