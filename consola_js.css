@@ -56,7 +56,4 @@ div.consola-javascript div::selection
   {background: rgba(128,128,128,0.5);}/* webkit, opera, IE9 */
 div.consola-javascript div::-moz-selection
   {background: rgba(128,128,128,0.5);}/* mozilla firefox */
-div.consola-javascript textarea
-  {
-    height: 30%;
-  }
+div.consola-javascript textarea {height: 30%;}
