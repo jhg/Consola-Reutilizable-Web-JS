@@ -47,9 +47,10 @@ div.consola-javascript *
   }
 div.consola-javascript div
   {
-    height: 75%;
+    height: 70%;
     border-bottom: solid gray 1px;
     overflow: auto;
+    background: rgba(0,0,0,0.1);
   }
 div.consola-javascript div::selection
   {background: rgba(128,128,128,0.5);}/* webkit, opera, IE9 */
@@ -57,5 +58,5 @@ div.consola-javascript div::-moz-selection
   {background: rgba(128,128,128,0.5);}/* mozilla firefox */
 div.consola-javascript textarea
   {
-    height: 25%;
+    height: 30%;
   }
