@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8" />
+  <title>Consola Javascript</title>
+  <style>
+  /* Tipografia Droid Sans Mono para las consolas javascript */
+  @font-face
+    {
+      font-family: "Droid Sans Mono";
+      src: url("DroidSansMono.ttf") format("truetype");
+    }
+  div.consola-javascript
+    {
+      font-family: "Droid Sans Mono", "Courier New", Courier,
+        "Lucida Console", Monaco, monospace;
+      /* Controlar tamaño de consola con el tamaño de la tipografia */
+      font-size: 9pt;
+      /* 23em de ancho para un tamaño de 40 caracteres por linea */
+      width: 23em;
+      min-width: 23em;
+      /* 13.25em de alto para un tamaño de 8 lineas */
+      height: 13.25em;
+      min-height: 13.25em;
+      background: #000;
+      background: rgba(0,0,0,0.8);
+      margin: 0px;
+      padding: 0px;
+      border: solid rgba(0,0,0,0.0) 0.5em;
+      color: #fff;
+      overflow: hidden;
+      border-radius: 6px;
+      resize: both;
+    }
+  div.consola-javascript *
+    {
+      font-family: "Droid Sans Mono", "Courier New", Courier,
+        "Lucida Console", Monaco, monospace;
+      /* Controlar tamaño de consola con el tamaño de la tipografia */
+      font-size: 9pt;
+      resize: none;
+      background: #000;
+      background: rgba(0,0,0,0.0);
+      color: #fff;
+      margin: 0px;
+      padding: 0px;
+      border: solid black 0px;
+    }
+  div.consola-javascript div
+    {
+      width: 100%;
+      min-height: 11.25em;
+      min-height: -moz-calc(100% - 1.75em);
+      min-height: -webkit-calc(100% - 1.75em);
+      min-height: -o-calc(100% - 1.75em);
+      min-height: -ms-calc(100% - 1.75em);
+      min-height: calc(100% - 1.75em);
+      height: 11.25em;
+      height: -moz-calc(100% - 1.75em);
+      height: -webkit-calc(100% - 1.75em);
+      height: -o-calc(100% - 1.75em);
+      height: -ms-calc(100% - 1.75em);
+      height: calc(100% - 1.75em);
+      border-bottom: solid gray 1px;
+      overflow: auto;
+    }
+  div.consola-javascript div::selection
+    {background: rgba(128,128,128,0.5);}/* webkit, opera, IE9 */
+  div.consola-javascript div::-moz-selection
+    {background: rgba(128,128,128,0.5);}/* mozilla firefox */
+  div.consola-javascript div span.consola-javascript-error {color: #f00;}
+  div.consola-javascript input[type='button']
+    {
+      width: 2em;
+      min-height: 1.75em;
+      height: 1.75em;
+    }
+  div.consola-javascript input[type='button']:hover {color: #f0f;}
+  div.consola-javascript input[type='button']:active {color: #00f;}
+  div.consola-javascript input[type='text']
+    {
+      width: 94%;
+      width: -moz-calc(100% - 3em);
+      width: -webkit-calc(100% - 3em);
+      width: -o-calc(100% - 3em);
+      width: -ms-calc(100% - 3em);
+      width: calc(100% - 3em);
+      min-height: 1.75em;
+      height: 1.75em;
+      border-right: solid gray 0px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  </header>
+  <section>
+      <article>
+        <div class="consola-javascript">Necesita Javascript</div>
+      </article><br/>
+      <article>
+        <div class="consola-javascript">Necesita Javascript</div>
+      </article>
+  </section>
+  <footer>
+  <script>
+    var local_consoles_js = Array();
+    var consoles_js_height = 16;
+    function consola_javascript_clear()
+      {
+        this.childNodes[0].innerHTML='';
+        return '';
+      }
+    function consola_javascript_ejecutar(event)
+      {
+        var event = event || window.event;
+        if (event.type == 'keyup')
+          {
+            if (event.keyCode != 13) return;
+          }
+        var console_js = this.parentNode;
+        var comando = console_js.childNodes[2].value;
+        console_js.childNodes[2].value = "";
+        var screen = console_js.childNodes[0].innerHTML;
+        screen = screen.split("<br>");
+        screen.pop();
+        while (screen.length > (consoles_js_height - 2) )
+          {
+            screen.shift();
+          }
+        console_js.childNodes[0].innerHTML = screen.join("<br>") + "<br>";
+        console_js.childNodes[0].innerHTML += 
+          " >> " + comando;
+        if (comando[comando.length-1] != ";")
+          {
+            console_js.childNodes[0].innerHTML +=
+              "<span class='consola-javascript-error'>;</span>";
+          }
+        console_js.childNodes[0].innerHTML += "<br>";
+        valor_retornado = eval (comando);
+        if (valor_retornado != '')
+          {
+            console_js.childNodes[0].innerHTML += valor_retornado + "<br>";
+          }
+      }
+    function activar_consolas_javascript()
+      {
+        local_consoles_js =
+          document.getElementsByClassName('consola-javascript');
+        var numero_consola=0;
+        for(numero_consola=0;
+          numero_consola < local_consoles_js.length; numero_consola++)
+          {
+            local_consoles_js[numero_consola].clear=consola_javascript_clear;
+            local_consoles_js[numero_consola].innerHTML =
+              '<div>Console ' + numero_consola +
+              '<br></div><input type="button" /><input type="text" />';
+            local_consoles_js[numero_consola].childNodes[1].value = " >> ";
+            local_consoles_js[numero_consola].childNodes[1].onclick =
+              consola_javascript_ejecutar;
+            local_consoles_js[numero_consola].childNodes[2].onkeyup =
+              consola_javascript_ejecutar;
+          }
+      }
+    activar_consolas_javascript();
+  </script>
+  </footer>
+</body></html>
